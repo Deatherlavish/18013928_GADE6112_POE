@@ -8,6 +8,7 @@ namespace GADE6112___Task3
 {
     class Map
     {
+        
         public readonly int width = 20;
         public readonly int height = 20;
 
@@ -22,36 +23,13 @@ namespace GADE6112___Task3
 
         public void UpdateMap(UnitAndBuildingManager manager)
         {
-            for (int y = 0; y < height; y++) {
-                for (int x = 0; x < width; x++) {
-                    map[x, y] = "   ";
-                }
-            }
-
-            foreach (Unit unit in manager.Units) {
-                if (unit.IsVisible) {
-                    map[unit.X, unit.Y] = unit.Symbol + "|" + unit.Faction[0];
-                }
-            }
-
-            foreach (Building building in manager.Buildings) {
-                if (building.IsVisible) {
-                    map[building.X, building.Y] = building.Symbol + "|" + building.Faction[0];
-                }
-            }
+          
         }
 
         public string GetMapDisplay()
         {
             string mapString = "";
-            for (int y = 0; y < height; y++)
-            {
-                for (int x = 0; x < width; x++)
-                {
-                    mapString += map[x, y];
-                }
-                mapString += "\n";
-            }
+           
             return mapString;
         }
     }

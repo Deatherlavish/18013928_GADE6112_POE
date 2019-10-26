@@ -20,11 +20,12 @@ namespace GADE6112___Task3
             this.symbol = symbol;
         }
 
-        public Building() {}
+        public Building()
+        {
 
-        public char Symbol {
-            get { return symbol; }
         }
+
+      
 
         public override void Destroy() {
             isDestroyed = true;

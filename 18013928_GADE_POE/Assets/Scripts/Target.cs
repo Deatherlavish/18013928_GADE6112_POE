@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace GADE6112___Task3 {
 
-    class Target : MonoBehaviour{
+    class Target : MonoBehaviour {
         protected int x;
         protected int y;
         protected int health;

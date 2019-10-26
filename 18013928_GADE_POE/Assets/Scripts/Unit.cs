@@ -101,7 +101,7 @@ namespace GADE6112___Task3
         }
 
         public virtual void RunAway() {
-            int direction = random.Next(0, 4);
+            int direction = 0;
             if (direction == 0) {
                 x += 1;
             }

@@ -10,40 +10,40 @@ public class GameManager : MonoBehaviour {
 	}
 	public int Round
     {
-        get { return round;}
+        get { return 1;}
     }
 	// Update is called once per frame
 	void Update () {
         UpdateUnits();
-        UpdateBuildings();
-        round++;
+       // UpdateBuildings();
+       // round++;
 	}
     void UpdateUnits()
     {
-        foreach (string faction in factions)
-        {
-            string[]
-        }
+       // foreach (string faction in factions)
+       // {
+           // string[];
+       // }
     }
-    privste void StayInBounds(Unit unit)
-    {
-        Vector3 unitPosition = unit.transform.position;
-        if(unitPosition.x < 0)
-        {
-            unitPosition.x = 0;
-        }
-        else if(unitPosition.x >= width)
-        {
-            unitPosition.x = width - 1;
-        }
-        if(unitPosition.y <0)
-        {
-            unitPosition.y = 0;
-        }
-        else if (unitPosition.y >= height)
-        {
-            unitPosition.y = height - 1;
-        }
-        unit.transform.position =
-    }
+    //private void StayInBounds(Unit unit)
+   // {
+     //   Vector3 unitPosition = unit.transform.position;
+     //   if(unitPosition.x < 0)
+     //   {
+     //       unitPosition.x = 0;
+     //   }
+     //   else if(unitPosition.x >= width)
+     //   {
+     //       unitPosition.x = width - 1;
+      //  }
+     //   if(unitPosition.y <0)
+     //   {
+     //       unitPosition.y = 0;
+     ///   }
+      //  else if (unitPosition.y >= height)
+     //   {
+     //       unitPosition.y = height - 1;
+     //   }
+     //   unit.transform.position = 2;  //UPDATE
+    //}
 }
