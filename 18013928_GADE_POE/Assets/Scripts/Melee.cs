@@ -10,8 +10,9 @@ public class Melee : MonoBehaviour
     public Sprite blueMeleeSprite;
     public Sprite redMeleeSprite;
     private SpriteRenderer spriteRenderer;
+    FactoryBuilding FactoryBuilding;
     float speed = 1f;
-    string faction;
+   public string faction = "Blue";
    public float yMovement;
     //STATS
     float health = 100f;
@@ -28,13 +29,14 @@ public class Melee : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 movement = new Vector2();
 
+    public void CreateunitProperties(string faction)
+    {
+        this.faction = faction;
+        
+    }
     void Start()
     {
-        teamSelect = Random.Range(0, 3);   //TEST
-        if(teamSelect == 1)
-        {
-            faction = "Blue";
-        }
+        
         spriteRenderer = GetComponent<SpriteRenderer>();
         if(spriteRenderer.sprite == null)
         {

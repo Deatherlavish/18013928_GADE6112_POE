@@ -24,11 +24,11 @@ public class Respawn : MonoBehaviour
     {
         if(Time.time > nextspawn)
         {
-            nextspawn = Time.time + spawnRate;
-            randX = Random.Range(-4, 4);  //move to spawneer
-            randY = Random.Range(-4, 4);  //move to spawner
-            spawnlocations = new Vector2(randX,randY);
-            Instantiate(swordsmen, spawnlocations,Quaternion.identity);
+          //  nextspawn = Time.time + spawnRate;
+          //  randX = Random.Range(-4, 4);  //move to spawneer
+          //  randY = Random.Range(-4, 4);  //move to spawner
+          //  spawnlocations = new Vector2(randX,randY);
+          //  Instantiate(swordsmen, spawnlocations,Quaternion.identity);
         }
     }
 }

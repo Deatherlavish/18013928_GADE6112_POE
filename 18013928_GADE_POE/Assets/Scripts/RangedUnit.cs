@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class RangedUnit : MonoBehaviour
 {
+    
     public GameObject RangeUnit;
     public Sprite BlueArcherSprite;
     public Sprite RedArcherSprite;
     private SpriteRenderer spriteRenderer;
-
+    FactoryBuilding factoryBuilding;
     //STATS
     float speed = 0.5f;
-    string faction;
+    public string faction;
     float health = 60f;
     float attack = 7f;
     float attackrange = 1.5f;
@@ -25,14 +26,22 @@ public class RangedUnit : MonoBehaviour
     float randDirection;
     private Rigidbody2D rb;
     private Vector2 movement = new Vector2();
+    private string factionType;
+    private string factionBuilding;
+    
+   public void CreateunitProperties(string faction)
+    {
+        this.faction = faction;
+        
+    }
+    
+
     // Start is called before the first frame update
     void Start()
     {
-        teamSelect = Random.Range(0, 3);   //TEST
-        if (teamSelect == 1)
-        {
-            faction = "Blue";
-        }
+        
+        
+        
         spriteRenderer = GetComponent<SpriteRenderer>();
         if (spriteRenderer.sprite == null)
         {
@@ -48,7 +57,7 @@ public class RangedUnit : MonoBehaviour
             spriteRenderer.sprite = RedArcherSprite;
         }
     }
-
+    
     // Update is called once per frame
     void Update()
     {
