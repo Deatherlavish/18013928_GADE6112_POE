@@ -14,17 +14,15 @@ public class GameManager : MonoBehaviour {
     }
 	// Update is called once per frame
 	void Update () {
-        UpdateUnits();
+       // UpdateUnits();
        // UpdateBuildings();
        // round++;
+
 	}
-    void UpdateUnits()
-    {
-       // foreach (string faction in factions)
-       // {
-           // string[];
-       // }
-    }
+    //void UpdateUnits()
+   // {
+      
+   // }
     //private void StayInBounds(Unit unit)
    // {
      //   Vector3 unitPosition = unit.transform.position;

@@ -2,55 +2,52 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Melee : MonoBehaviour
+public class RangedUnit : MonoBehaviour
 {
-
-    // Start is called before the first frame update
-    public GameObject BlueSword;
-    public Sprite blueMeleeSprite;
-    public Sprite redMeleeSprite;
+    public GameObject RangeUnit;
+    public Sprite BlueArcherSprite;
+    public Sprite RedArcherSprite;
     private SpriteRenderer spriteRenderer;
-    float speed = 1f;
-    string faction;
-   public float yMovement;
-    //STATS
-    float health = 100f;
-    float attack = 4f;
-    float attackrange = 0.04f;
-    bool isAttacking = false;
-        //ENDSTATS
 
-   public float xMovement;
+    //STATS
+    float speed = 0.5f;
+    string faction;
+    float health = 60f;
+    float attack = 7f;
+    float attackrange = 1.5f;
+    bool isAttacking = false;
+
+    public float yMovement;
+    public float xMovement;
     int teamSelect;
     float nextdirection;
-   public float nextDirectionChangeRate;
+    public float nextDirectionChangeRate;
     float randDirection;
     private Rigidbody2D rb;
     private Vector2 movement = new Vector2();
-
+    // Start is called before the first frame update
     void Start()
     {
         teamSelect = Random.Range(0, 3);   //TEST
-        if(teamSelect == 1)
+        if (teamSelect == 1)
         {
             faction = "Blue";
         }
         spriteRenderer = GetComponent<SpriteRenderer>();
-        if(spriteRenderer.sprite == null)
+        if (spriteRenderer.sprite == null)
         {
-            spriteRenderer.sprite = blueMeleeSprite;
+            spriteRenderer.sprite = BlueArcherSprite;
         }
         rb = this.GetComponent<Rigidbody2D>();
-       if(faction == "Blue")
+        if (faction == "Blue")
         {
-            spriteRenderer.sprite = blueMeleeSprite;
+            spriteRenderer.sprite = BlueArcherSprite;
         }
         else
         {
-            spriteRenderer.sprite = redMeleeSprite;
+            spriteRenderer.sprite = RedArcherSprite;
         }
     }
-    
 
     // Update is called once per frame
     void Update()
@@ -59,15 +56,15 @@ public class Melee : MonoBehaviour
         {
             nextdirection = Time.time + nextDirectionChangeRate;
 
-           
+
             nextDirectionChangeRate = Random.Range(1, 5);
             randDirection = Random.Range(0, 9);
-            if(randDirection == 1)
+            if (randDirection == 1)
             {
                 xMovement = -1;
                 yMovement = 0;
             }
-            else if(randDirection == 2)
+            else if (randDirection == 2)
             {
                 xMovement = 1;
                 yMovement = 0;
@@ -102,7 +99,7 @@ public class Melee : MonoBehaviour
                 xMovement = 1;
                 yMovement = -1;
             }
-            
+
         }
         if (transform.position.x > 8.6)
         {
@@ -114,7 +111,7 @@ public class Melee : MonoBehaviour
             // Destroy(BlueSword);
             xMovement = 1;
         }
-        if(transform.position.y > 8)
+        if (transform.position.y > 8)
         {
             yMovement = -1;
         }
@@ -122,6 +119,6 @@ public class Melee : MonoBehaviour
         {
             yMovement = 1;
         }
-        transform.position += new Vector3(xMovement, yMovement) *Time.deltaTime;
+        transform.position += new Vector3(xMovement, yMovement) * Time.deltaTime;
     }
 }
