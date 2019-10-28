@@ -3,7 +3,15 @@ guid: bb06bac64f0bfc849b1b4d22cf16ad72
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - Tent: {instanceID: 0}
+  - blueFactorySprite: {fileID: 21300000, guid: 39563986464dbaf4e9f6b9de9f32cf00,
+      type: 3}
+  - redFactorySprite: {fileID: 21300000, guid: 49680b8c5868dd64cb89fcdb63120838, type: 3}
+  - swordsmen: {instanceID: 0}
+  - archers: {instanceID: 0}
+  - buildingspawn: {instanceID: 0}
+  - collider: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

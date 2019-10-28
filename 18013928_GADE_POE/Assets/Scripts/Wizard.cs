@@ -2,62 +2,32 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RangedUnit : MonoBehaviour
+public class Wizard : MonoBehaviour
 {
-    
-    public GameObject RangeUnit;
-    public Sprite BlueArcherSprite;
-    public Sprite RedArcherSprite;
-    private SpriteRenderer spriteRenderer;
-    FactoryBuilding factoryBuilding = new FactoryBuilding();
-    //STATS
-    float speed = 0.5f;
-    public string faction;
-    float health = 60f;
+    public GameObject wizard;
+    float speed = 0.3f;
+    public string faction = "Neutral";
+    float health = 100f;
     float attack = 7f;
-    float attackrange = 1.5f;
+    float attackrange = 1.3f;
     bool isAttacking = false;
-
-    public float yMovement;
     public float xMovement;
-    int teamSelect;
+    public float yMovement;
     float nextdirection;
     public float nextDirectionChangeRate;
     float randDirection;
     private Rigidbody2D rb;
     private Vector2 movement = new Vector2();
-    private string factionType;
-    private string factionBuilding;
-    public string Test = "No";
-   public void CreateunitProperties(string faction)
-    {
-        this.faction = faction;
-        Test = "yes";
-    }
-    
-
+    public float Distance;
+    public Transform wizardPos;
+    public Transform buildingPos;
+    public float distance;
     // Start is called before the first frame update
     void Start()
     {
         
-        
-        
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        if (spriteRenderer.sprite == null)
-        {
-            spriteRenderer.sprite = BlueArcherSprite;
-        }
-        rb = this.GetComponent<Rigidbody2D>();
-        if (faction == "Blue")
-        {
-            spriteRenderer.sprite = BlueArcherSprite;
-        }
-        else
-        {
-            spriteRenderer.sprite = RedArcherSprite;
-        }
     }
-    
+
     // Update is called once per frame
     void Update()
     {
@@ -103,6 +73,7 @@ public class RangedUnit : MonoBehaviour
                 xMovement = -1 * speed;
                 yMovement = -1 * speed;
             }
+            
             else if (randDirection == 8)
             {
                 xMovement = 1 * speed;
@@ -120,7 +91,7 @@ public class RangedUnit : MonoBehaviour
             // Destroy(BlueSword);
             xMovement = 1 * speed;
         }
-        if (transform.position.y > 8)
+        if (transform.position.y > 8) 
         {
             yMovement = -1 * speed;
         }

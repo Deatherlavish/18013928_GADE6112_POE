@@ -10,7 +10,7 @@ public class Melee : MonoBehaviour
     public Sprite blueMeleeSprite;
     public Sprite redMeleeSprite;
     private SpriteRenderer spriteRenderer;
-    FactoryBuilding FactoryBuilding;
+    FactoryBuilding factoryBuilding;
     float speed = 1f;
    public string faction = "Blue";
    public float yMovement;
@@ -28,12 +28,10 @@ public class Melee : MonoBehaviour
     float randDirection;
     private Rigidbody2D rb;
     private Vector2 movement = new Vector2();
-
-    public void CreateunitProperties(string faction)
-    {
-        this.faction = faction;
-        
-    }
+    public float Distance;
+    public Transform meleePos;
+    public Transform buildingPos;
+    public float distance;
     void Start()
     {
         
@@ -43,6 +41,10 @@ public class Melee : MonoBehaviour
             spriteRenderer.sprite = blueMeleeSprite;
         }
         rb = this.GetComponent<Rigidbody2D>();
+        if(Vector2.Distance(meleePos.position , factoryBuilding.buildingspawn.position) < 1)
+            {
+            
+        }
        if(faction == "Blue")
         {
             spriteRenderer.sprite = blueMeleeSprite;
@@ -52,7 +54,10 @@ public class Melee : MonoBehaviour
             spriteRenderer.sprite = redMeleeSprite;
         }
     }
-    
+    public void FactionRecieved(string faction)
+    {
+        this.faction = faction;
+    }
 
     // Update is called once per frame
     void Update()
@@ -66,63 +71,63 @@ public class Melee : MonoBehaviour
             randDirection = Random.Range(0, 9);
             if(randDirection == 1)
             {
-                xMovement = -1;
-                yMovement = 0;
+                xMovement = -1 * speed;
+                yMovement = 0 * speed;
             }
             else if(randDirection == 2)
             {
-                xMovement = 1;
-                yMovement = 0;
+                xMovement = 1 * speed;
+                yMovement = 0 * speed;
             }
             else if (randDirection == 3)
             {
-                xMovement = 0;
-                yMovement = -1;
+                xMovement = 0 * speed;
+                yMovement = -1 * speed;
             }
             else if (randDirection == 4)
             {
-                xMovement = 0;
-                yMovement = 1;
+                xMovement = 0 * speed;
+                yMovement = 1 * speed;
             }
             else if (randDirection == 5)
             {
-                xMovement = 1;
-                yMovement = 1;
+                xMovement = 1 * speed;
+                yMovement = 1 * speed;
             }
             else if (randDirection == 6)
             {
-                xMovement = -1;
-                yMovement = 1;
+                xMovement = -1 * speed;
+                yMovement = 1 * speed;
             }
             else if (randDirection == 7)
             {
-                xMovement = -1;
-                yMovement = -1;
+                xMovement = -1 * speed;
+                yMovement = -1 * speed;
             }
             else if (randDirection == 8)
             {
-                xMovement = 1;
-                yMovement = -1;
+                xMovement = 1 * speed;
+                yMovement = -1 * speed;
             }
             
         }
         if (transform.position.x > 8.6)
         {
             //Destroy(BlueSword);
-            xMovement = -1;
+            xMovement = -1 * speed;
         }
         if (transform.position.x < -11.7)
         {
             // Destroy(BlueSword);
-            xMovement = 1;
+            xMovement = 1 * speed;
         }
         if(transform.position.y > 8)
         {
-            yMovement = -1;
+            yMovement = -1 * speed;
         }
         if (transform.position.y < -12.4)
         {
-            yMovement = 1;
+            yMovement = 1 * speed;
         }
         transform.position += new Vector3(xMovement, yMovement) *Time.deltaTime;
     }

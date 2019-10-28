@@ -23,12 +23,14 @@ public class FactoryBuilding : MonoBehaviour
     public float spawntime;
     float nextspawn = 0;
     public float randomiser;
+    public float factionType;
     public Transform buildingspawn;
-    Vector2 buildingpos;
-    
-    string faction;
-
+    public Vector3 buildingpos;
    
+    public Collider2D collider;
+    string faction;
+    object factionObj;
+    float health = 200;
    
     enum UnitType
     {
@@ -39,10 +41,39 @@ public class FactoryBuilding : MonoBehaviour
    
     void Start()
     {
-        
-        faction = "Blue";
-    }
+        factionType = Random.Range(1, 3);
+        if (factionType == 1)
+        {
+            faction = "Blue";
 
+
+        }
+        else
+        {
+            faction = "Red";
+        }
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        if (spriteRenderer.sprite == null)
+        {
+            spriteRenderer.sprite = blueFactorySprite;
+        }
+        if (faction == "Blue")
+        {
+            spriteRenderer.sprite = blueFactorySprite;
+        }
+        else
+        {
+            spriteRenderer.sprite = redFactorySprite;
+        }
+        factionObj = faction;
+        collider.enabled = false;
+        
+        
+    }
+    public void FactionReciever()
+    {
+        
+    }
     // Update is called once per frame
     void Update()
     {
@@ -57,14 +88,14 @@ public class FactoryBuilding : MonoBehaviour
             {
                 if(faction == "Blue")
                 {
-                    melee.CreateunitProperties(faction);
-                    Instantiate(swordsmen, spawnlocations, Quaternion.identity);
+                    //melee.CreateunitProperties(this.faction);
+                    Instantiate(swordsmen,buildingspawn.position, Quaternion.identity);
 
                 }
                 else if (faction == "Red")
                 {
-                   melee.CreateunitProperties("Red");
-                    Instantiate(swordsmen, spawnlocations, Quaternion.identity);
+                  // melee.CreateunitProperties(this.faction);
+                    Instantiate(swordsmen, buildingspawn.position, Quaternion.identity);
                     
                 }
             }
@@ -72,13 +103,13 @@ public class FactoryBuilding : MonoBehaviour
             {
                 if (faction == "Blue")
                 { 
-                    rangedUnit.CreateunitProperties("Blue");
-                    Instantiate(archers, spawnlocations, Quaternion.identity);
+                   // rangedUnit.CreateunitProperties(this.faction);
+                    Instantiate(archers, buildingspawn.position, Quaternion.identity);
                 }
                else if (faction == "Red")
                 {
-                    rangedUnit.CreateunitProperties("Red");
-                    Instantiate(archers, spawnlocations, Quaternion.identity);
+                    //rangedUnit.CreateunitProperties(this.faction);
+                    Instantiate(archers, buildingspawn.position, Quaternion.identity);
                 }
             }
 
